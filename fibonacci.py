@@ -7,11 +7,14 @@ Output: fibonacci sequence till n
 def fibonacci(n):
 	if (n == 0 or n ==1):
 		return n
+        
+        if (memo[n]):
+		return memo[n]
+	else:
+		memo[n] = fibonacci(n-1) + fibonacci(n-2) 
+	return memo[n]
 
-	return fibonacci(n-1) + fibonacci(n-2)
-
-start = 0
-end = 10
-
-for i in range(start,end):
+n = 10
+memo = [None for i in range(n)]
+for i in range(n):
 	print fibonacci(i)
